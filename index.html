@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,11 +14,10 @@
     body {
       margin: 0;
       min-height: 100vh;
-
       font-family: "Arial Rounded MT Bold", Arial, sans-serif;
 
       background:
-        radial-gradient(circle at top, #fff7fb, #ffd6e7);
+        radial-gradient(circle at top, #fff8fc, #ffd7e7);
 
       display: flex;
       justify-content: center;
@@ -30,9 +28,9 @@
 
     .page {
       text-align: center;
-      padding: 30px 20px 60px;
       width: 100%;
       max-width: 430px;
+      padding: 30px 20px 60px;
     }
 
     h1 {
@@ -47,11 +45,8 @@
       margin-bottom: 35px;
     }
 
-    /* BUTTON */
-
     .surprise-button {
       border: none;
-
       padding: 17px 30px;
 
       background: #e85c8c;
@@ -70,38 +65,31 @@
       animation: pulse 1.5s infinite;
     }
 
-    /* SURPRISE AREA */
-
     .surprise {
       display: none;
-      margin-top: 30px;
+      margin-top: 28px;
     }
 
     .surprise.show {
       display: block;
-
       animation: fadeUp 0.8s ease;
     }
 
-    /* CAT */
-
     .cat-container {
-      height: 180px;
+      height: 185px;
 
       display: flex;
       justify-content: center;
       align-items: center;
-
-      position: relative;
     }
 
     .cat {
-      width: 150px;
-      max-height: 150px;
+      width: 155px;
+      max-height: 155px;
 
       object-fit: contain;
 
-      border-radius: 20px;
+      border-radius: 18px;
 
       animation:
         catBounce 0.7s ease-in-out infinite alternate;
@@ -110,10 +98,8 @@
         drop-shadow(0 10px 12px rgba(0, 0, 0, 0.15));
     }
 
-    /* CAKE */
-
     .cake {
-      margin: -18px auto 25px;
+      margin: -20px auto 25px;
 
       width: 240px;
       height: 115px;
@@ -131,7 +117,6 @@
 
     .frosting {
       position: absolute;
-
       top: 0;
 
       width: 100%;
@@ -162,8 +147,6 @@
         130px 0 #fff8fa;
     }
 
-    /* TEXT */
-
     .love {
       font-size: 33px;
       font-weight: bold;
@@ -183,8 +166,6 @@
 
       margin-top: 15px;
     }
-
-    /* HEARTS */
 
     .heart {
       position: fixed;
@@ -223,8 +204,6 @@
       animation-delay: 2.2s;
     }
 
-    /* HIDDEN YOUTUBE PLAYER */
-
     #musicPlayer {
       position: fixed;
 
@@ -235,12 +214,11 @@
 
       pointer-events: none;
 
-      bottom: 0;
       left: 0;
+      bottom: 0;
     }
 
     @keyframes hearts {
-
       0% {
         transform: translateY(0) rotate(0deg);
         opacity: 0;
@@ -257,7 +235,6 @@
     }
 
     @keyframes pulse {
-
       0% {
         transform: scale(1);
       }
@@ -272,7 +249,6 @@
     }
 
     @keyframes fadeUp {
-
       from {
         opacity: 0;
         transform: translateY(30px);
@@ -285,7 +261,6 @@
     }
 
     @keyframes catBounce {
-
       from {
         transform: translateY(0);
       }
@@ -296,7 +271,6 @@
     }
 
     @keyframes lovePop {
-
       0% {
         transform: scale(0.5);
         opacity: 0;
@@ -311,13 +285,10 @@
         opacity: 1;
       }
     }
-
   </style>
 </head>
 
 <body>
-
-  <!-- FLOATING HEARTS -->
 
   <div class="heart">❤️</div>
   <div class="heart">💕</div>
@@ -325,15 +296,13 @@
   <div class="heart">💖</div>
   <div class="heart">💞</div>
 
-
   <div class="page">
 
-    <h1>Hey Chiquis 💕</h1>
+    <h1>Hi Chiquis 💕</h1>
 
     <div class="intro">
-      I made you a little something
+      I made you something
     </div>
-
 
     <button
       id="surpriseButton"
@@ -342,7 +311,6 @@
     >
       For Chiquis Only ❤️
     </button>
-
 
     <div
       class="surprise"
@@ -353,47 +321,33 @@
 
         <img
           class="cat"
-          src="cat.gif"
+          src="https://media.giphy.com/media/1c9ltJnlPKZ4jhDRpw/giphy.gif"
           alt="Spinning meme cat"
         >
 
       </div>
 
-
       <div class="cake">
-
         <div class="frosting"></div>
-
       </div>
-
 
       <div class="love">
-
-        I love you CHIQUI BABY ❤️
-
+        I love you CHIQUIS ❤️
       </div>
 
-
       <div class="message">
-
         Have a good day every day 💕
-
       </div>
 
     </div>
 
   </div>
 
-
-  <!-- MUSIC LOADS HERE AFTER BUTTON IS PRESSED -->
-
   <div id="musicContainer"></div>
-
 
   <script>
 
     let musicStarted = false;
-
 
     function showSurprise() {
 
@@ -403,18 +357,10 @@
       const button =
         document.getElementById("surpriseButton");
 
-
-      /* Show surprise */
-
       surprise.classList.add("show");
 
-
-      /* Change button */
-
-      button.innerHTML = "I love you amor ❤️";
-
-
-      /* Start music only once */
+      button.innerHTML =
+        "I love you ❤️";
 
       if (!musicStarted) {
 
@@ -423,33 +369,27 @@
         const player =
           document.createElement("iframe");
 
-
-        player.id = "musicPlayer";
+        player.id =
+          "musicPlayer";
 
         player.src =
           "https://www.youtube.com/embed/IxX_QHay02M?autoplay=1&loop=1&playlist=IxX_QHay02M&controls=0&rel=0";
 
-
         player.allow =
           "autoplay; encrypted-media";
-
 
         player.setAttribute(
           "allowfullscreen",
           ""
         );
 
-
         document
           .getElementById("musicContainer")
           .appendChild(player);
-
       }
-
     }
 
   </script>
 
 </body>
-
 </html>
