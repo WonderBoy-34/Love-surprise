@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>For Chiquis ❤️</title>
+  <title>For Chiqui Baby ❤️</title>
 
   <style>
     * {
@@ -23,80 +23,86 @@
       justify-content: center;
       align-items: center;
 
-      overflow: hidden;
+      overflow-x: hidden;
     }
 
     .page {
       text-align: center;
       width: 100%;
       max-width: 430px;
-      padding: 30px 20px 60px;
+      padding: 50px 20px 70px;
     }
 
     h1 {
       color: #d94f7d;
-      font-size: 34px;
-      margin-bottom: 12px;
+      font-size: 36px;
+      margin-bottom: 20px;
     }
 
     .intro {
       color: #a84d6c;
-      font-size: 18px;
+      font-size: 19px;
+      line-height: 1.4;
       margin-bottom: 35px;
+      font-weight: bold;
     }
 
     .surprise-button {
       border: none;
-      padding: 17px 30px;
+
+      padding: 18px 35px;
+
       background: #e85c8c;
       color: white;
-      font-size: 19px;
+
+      font-size: 20px;
       font-weight: bold;
-      border-radius: 30px;
+
+      border-radius: 40px;
 
       box-shadow:
-        0 8px 20px rgba(180, 55, 100, 0.25);
+        0 10px 25px rgba(180, 55, 100, 0.25);
 
       cursor: pointer;
+
       animation: pulse 1.5s infinite;
-    }
 
-    .surprise {
-      display: none;
-      margin-top: 28px;
-    }
-
-    .surprise.show {
-      display: block;
-      animation: fadeUp 0.8s ease;
+      margin-bottom: 35px;
     }
 
     .cat-container {
-      height: 185px;
+      height: 190px;
+
       display: flex;
       justify-content: center;
       align-items: center;
     }
 
-    .cat {
-      width: 155px;
-      max-height: 155px;
+    .main-cat {
+      width: 170px;
+      max-height: 170px;
+
       object-fit: contain;
-      border-radius: 18px;
+
+      border-radius: 25px;
+
+      filter:
+        drop-shadow(0 10px 15px rgba(0, 0, 0, 0.15));
 
       animation:
         catBounce 0.7s ease-in-out infinite alternate;
-
-      filter:
-        drop-shadow(0 10px 12px rgba(0, 0, 0, 0.15));
     }
 
     .cake {
-      margin: -20px auto 25px;
+      margin: -10px auto 30px;
+
       width: 240px;
-      height: 115px;
+      height: 120px;
+
       background: #f48fb1;
-      border-radius: 20px 20px 28px 28px;
+
+      border-radius: 20px 20px 30px 30px;
+
       position: relative;
 
       box-shadow:
@@ -106,20 +112,29 @@
 
     .frosting {
       position: absolute;
+
       top: 0;
+
       width: 100%;
-      height: 40px;
+      height: 42px;
+
       background: #fff8fa;
+
       border-radius: 50%;
     }
 
     .frosting::after {
       content: "";
+
       position: absolute;
+
       width: 35px;
-      height: 40px;
+      height: 42px;
+
       background: #fff8fa;
+
       border-radius: 0 0 50% 50%;
+
       top: 18px;
       left: 30px;
 
@@ -129,26 +144,39 @@
     }
 
     .love {
-      font-size: 33px;
+      font-size: 36px;
       font-weight: bold;
+
       color: #d6336c;
-      margin-top: 18px;
+
+      margin-top: 25px;
+
       animation: lovePop 1s ease;
     }
 
     .message {
       font-size: 21px;
       line-height: 1.5;
+
       color: #9d4162;
-      margin-top: 15px;
+
+      margin-top: 25px;
+
+      font-weight: bold;
     }
 
     .heart {
       position: fixed;
+
       bottom: -50px;
+
       font-size: 28px;
+
       animation: hearts 6s linear infinite;
+
       pointer-events: none;
+
+      z-index: 1;
     }
 
     .heart:nth-child(1) {
@@ -176,19 +204,169 @@
       animation-delay: 2.2s;
     }
 
-    /*
-      Keep the YouTube player loaded,
-      but move it almost completely off screen.
-    */
+    /* CAT RAVE */
+
+    .cat-rave {
+      position: fixed;
+
+      inset: 0;
+
+      display: none;
+
+      overflow: hidden;
+
+      z-index: 9999;
+
+      background:
+        radial-gradient(
+          circle,
+          #ff9ac2,
+          #ff4f91,
+          #8d56ff
+        );
+
+      animation:
+        raveBackground 1.2s ease-in-out infinite alternate;
+    }
+
+    .cat-rave.active {
+      display: block;
+    }
+
+    .rave-title {
+      position: absolute;
+
+      top: 6%;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      width: 100%;
+
+      text-align: center;
+
+      color: white;
+
+      font-size: 34px;
+      font-weight: bold;
+
+      text-shadow:
+        0 4px 15px rgba(0,0,0,.35);
+
+      z-index: 10002;
+
+      animation:
+        titleBounce .5s ease-in-out infinite alternate;
+    }
+
+    .rave-cat {
+      position: absolute;
+
+      object-fit: contain;
+
+      border-radius: 18px;
+
+      filter:
+        drop-shadow(0 8px 12px rgba(0,0,0,.25));
+
+      animation:
+        raveCatDance .8s ease-in-out infinite alternate;
+    }
+
+    .disco-ball {
+      position: absolute;
+
+      top: 16%;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      font-size: 65px;
+
+      z-index: 10001;
+
+      animation:
+        discoSpin 2s linear infinite;
+    }
+
+    .close-rave {
+      position: absolute;
+
+      bottom: 5%;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      border: none;
+
+      padding: 15px 25px;
+
+      border-radius: 30px;
+
+      background: white;
+      color: #d6336c;
+
+      font-size: 17px;
+      font-weight: bold;
+
+      z-index: 10003;
+
+      box-shadow:
+        0 8px 20px rgba(0,0,0,.2);
+    }
 
     #player-holder {
       position: fixed;
+
       width: 2px;
       height: 2px;
-      left: -10px;
-      bottom: -10px;
+
+      left: -20px;
+      bottom: -20px;
+
       overflow: hidden;
+
       opacity: 0.01;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.06);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes catBounce {
+      from {
+        transform: translateY(0);
+      }
+
+      to {
+        transform: translateY(-12px);
+      }
+    }
+
+    @keyframes lovePop {
+      0% {
+        transform: scale(.6);
+        opacity: 0;
+      }
+
+      70% {
+        transform: scale(1.1);
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
     }
 
     @keyframes hearts {
@@ -207,57 +385,60 @@
       }
     }
 
-    @keyframes pulse {
-      0% {
-        transform: scale(1);
-      }
-
-      50% {
-        transform: scale(1.06);
-      }
-
-      100% {
-        transform: scale(1);
-      }
-    }
-
-    @keyframes fadeUp {
+    @keyframes raveBackground {
       from {
-        opacity: 0;
-        transform: translateY(30px);
+        filter: hue-rotate(0deg);
       }
 
       to {
-        opacity: 1;
-        transform: translateY(0);
+        filter: hue-rotate(100deg);
       }
     }
 
-    @keyframes catBounce {
+    @keyframes raveCatDance {
       from {
-        transform: translateY(0);
+        transform:
+          translateY(-10px)
+          rotate(-15deg)
+          scale(.9);
       }
 
       to {
-        transform: translateY(-12px);
+        transform:
+          translateY(25px)
+          rotate(15deg)
+          scale(1.15);
       }
     }
 
-    @keyframes lovePop {
-      0% {
-        transform: scale(0.5);
-        opacity: 0;
+    @keyframes titleBounce {
+      from {
+        transform:
+          translateX(-50%)
+          scale(1);
       }
 
-      70% {
-        transform: scale(1.12);
-      }
-
-      100% {
-        transform: scale(1);
-        opacity: 1;
+      to {
+        transform:
+          translateX(-50%)
+          scale(1.12);
       }
     }
+
+    @keyframes discoSpin {
+      from {
+        transform:
+          translateX(-50%)
+          rotate(0deg);
+      }
+
+      to {
+        transform:
+          translateX(-50%)
+          rotate(360deg);
+      }
+    }
+
   </style>
 </head>
 
@@ -271,59 +452,62 @@
 
   <div class="page">
 
-    <h1>Hey Chiquis 💕</h1>
+    <h1>
+      Hiiii Chiquis 
+    </h1>
 
     <div class="intro">
-      I made you a something bc i couldnt sleep
+      I made you something bc i couldnt sleep
     </div>
 
     <button
-      id="surpriseButton"
       class="surprise-button"
-      onclick="showSurprise()"
+      onclick="startCatRave()"
     >
-      For Chiqui Baby Only ❤️
+      I love you amor ❤️
     </button>
 
-    <div
-      class="surprise"
-      id="surprise"
-    >
+    <div class="cat-container">
 
-      <div class="cat-container">
+      <img
+        class="main-cat"
+        src="https://media.giphy.com/media/1c9ltJnlPKZ4jhDRpw/giphy.gif"
+        alt="Cute cat"
+      >
 
-        <img
-          class="cat"
-          src="https://media.giphy.com/media/1c9ltJnlPKZ4jhDRpw/giphy.gif"
-          alt="Spinning meme cat"
-        >
+    </div>
 
-      </div>
+    <div class="cake">
 
-      <div class="cake">
-        <div class="frosting"></div>
-      </div>
+      <div class="frosting"></div>
 
-      <div class="love">
-        I love you CHIQUIS ❤️
-      </div>
+    </div>
 
-      <div class="message">
-        Have a good day every day 💕
-      </div>
+    <div class="love">
+      I love you CHIQUIS ❤️
+    </div>
 
+    <div class="message">
+      Have a good day every day 💕
     </div>
 
   </div>
 
-  <!-- YouTube player loads BEFORE she presses the button -->
+
+  <!-- CAT RAVE SCREEN -->
+
+  <div
+    id="catRave"
+    class="cat-rave"
+  ></div>
+
+
+  <!-- MUSIC PLAYER -->
 
   <div id="player-holder">
     <div id="player"></div>
   </div>
 
-
-  <!-- YouTube Player API -->
 
   <script src="https://www.youtube.com/iframe_api"></script>
 
@@ -334,84 +518,251 @@
     let playerReady = false;
 
 
-    /*
-      YouTube automatically calls this
-      when the player API finishes loading.
-    */
-
     function onYouTubeIframeAPIReady() {
 
-      player = new YT.Player("player", {
+      player = new YT.Player(
+        "player",
+        {
 
-        height: "200",
-        width: "200",
+          height: "200",
 
-        videoId: "IxX_QHay02M",
+          width: "200",
 
-        playerVars: {
+          videoId:
+            "IxX_QHay02M",
 
-          playsinline: 1,
+          playerVars: {
 
-          controls: 0,
+            playsinline: 1,
 
-          rel: 0,
+            controls: 0,
 
-          loop: 1,
+            rel: 0,
 
-          playlist: "IxX_QHay02M"
+            loop: 1,
 
-        },
+            playlist:
+              "IxX_QHay02M"
 
-        events: {
+          },
 
-          onReady: function () {
+          events: {
 
-            playerReady = true;
+            onReady: function () {
+
+              playerReady = true;
+
+            }
 
           }
 
         }
-
-      });
+      );
 
     }
 
 
-    function showSurprise() {
+    function startCatRave() {
 
-      const surprise =
-        document.getElementById("surprise");
-
-      const button =
-        document.getElementById("surpriseButton");
-
-
-      /*
-        Reveal everything
-      */
-
-      surprise.classList.add("show");
+      const rave =
+        document.getElementById(
+          "catRave"
+        );
 
 
-      /*
-        Change button text
-      */
+      rave.innerHTML = `
 
-      button.innerHTML =
-        "I love you amor ❤️";
+        <div class="rave-title">
+
+          CHIQUIS CAT RAVE 💕🐱
+
+        </div>
+
+        <div class="disco-ball">
+
+          🪩
+
+        </div>
+
+        <button
+          class="close-rave"
+          onclick="stopCatRave()"
+        >
+
+          okay enough cats 😭❤️
+
+        </button>
+
+      `;
 
 
-      /*
-        Start YouTube directly from her tap
-      */
+      const gifCats = [
 
-      if (playerReady && player) {
+        "https://media.giphy.com/media/1c9ltJnlPKZ4jhDRpw/giphy.gif",
 
-        player.unMute();
+        "https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif",
 
-        player.setVolume(100);
+        "https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif",
 
-        player.playVideo();
+        "https://media.giphy.com/media/ICOgUNjpvO0PC/giphy.gif"
+
+      ];
+
+
+      for (
+        let i = 0;
+        i < 20;
+        i++
+      ) {
+
+        const cat =
+          document.createElement(
+            "img"
+          );
+
+
+        cat.src =
+
+          gifCats[
+            Math.floor(
+              Math.random()
+              *
+              gifCats.length
+            )
+          ];
+
+
+        cat.className =
+          "rave-cat";
+
+
+        cat.style.left =
+          Math.random()
+          *
+          85
+          +
+          "%";
+
+
+        cat.style.top =
+          (
+            Math.random()
+            *
+            70
+            +
+            15
+          )
+          +
+          "%";
+
+
+        cat.style.width =
+          (
+            65
+            +
+            Math.random()
+            *
+            85
+          )
+          +
+          "px";
+
+
+        cat.style.animationDelay =
+          Math.random()
+          +
+          "s";
+
+
+        cat.style.animationDuration =
+          (
+            .4
+            +
+            Math.random()
+          )
+          +
+          "s";
+
+
+        rave.appendChild(
+          cat
+        );
+
+      }
+
+
+      rave.classList.add(
+        "active"
+      );
+
+
+      if (
+        playerReady
+        &&
+        player
+      ) {
+
+        try {
+
+          player.unMute();
+
+          player.setVolume(
+            100
+          );
+
+          player.playVideo();
+
+        }
+
+        catch (error) {
+
+          console.log(
+            error
+          );
+
+        }
+
+      }
+
+    }
+
+
+    function stopCatRave() {
+
+      const rave =
+        document.getElementById(
+          "catRave"
+        );
+
+
+      rave.classList.remove(
+        "active"
+      );
+
+
+      rave.innerHTML =
+        "";
+
+
+      if (
+        playerReady
+        &&
+        player
+      ) {
+
+        try {
+
+          player.pauseVideo();
+
+        }
+
+        catch (error) {
+
+          console.log(
+            error
+          );
+
+        }
 
       }
 
