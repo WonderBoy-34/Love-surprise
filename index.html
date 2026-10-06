@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>A Little Surprise ❤️</title>
+  <title>For Chiqui Baby ❤️</title>
 
   <style>
     * {
@@ -14,69 +15,131 @@
     body {
       margin: 0;
       min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
 
       font-family: "Arial Rounded MT Bold", Arial, sans-serif;
 
-      background: linear-gradient(
-        135deg,
-        #ffd6e7,
-        #ffeef5,
-        #ffd9e8
-      );
+      background:
+        radial-gradient(circle at top, #fff7fb, #ffd6e7);
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      overflow: hidden;
     }
 
-    .container {
+    .page {
       text-align: center;
-      position: relative;
+      padding: 30px 20px 60px;
+      width: 100%;
+      max-width: 430px;
     }
 
     h1 {
       color: #d94f7d;
-      font-size: 30px;
-      margin-bottom: 60px;
-      animation: fadeIn 1.5s ease;
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    .intro {
+      color: #a84d6c;
+      font-size: 18px;
+      margin-bottom: 35px;
+    }
+
+    /* BUTTON */
+
+    .surprise-button {
+      border: none;
+
+      padding: 17px 30px;
+
+      background: #e85c8c;
+      color: white;
+
+      font-size: 19px;
+      font-weight: bold;
+
+      border-radius: 30px;
+
+      box-shadow:
+        0 8px 20px rgba(180, 55, 100, 0.25);
+
+      cursor: pointer;
+
+      animation: pulse 1.5s infinite;
+    }
+
+    /* SURPRISE AREA */
+
+    .surprise {
+      display: none;
+      margin-top: 30px;
+    }
+
+    .surprise.show {
+      display: block;
+
+      animation: fadeUp 0.8s ease;
+    }
+
+    /* CAT */
+
+    .cat-container {
+      height: 180px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      position: relative;
+    }
+
+    .cat {
+      width: 150px;
+      max-height: 150px;
+
+      object-fit: contain;
+
+      border-radius: 20px;
+
+      animation:
+        catBounce 0.7s ease-in-out infinite alternate;
+
+      filter:
+        drop-shadow(0 10px 12px rgba(0, 0, 0, 0.15));
     }
 
     /* CAKE */
 
     .cake {
+      margin: -18px auto 25px;
+
+      width: 240px;
+      height: 115px;
+
+      background: #f48fb1;
+
+      border-radius: 20px 20px 28px 28px;
+
       position: relative;
-      width: 230px;
-      height: 150px;
-      margin: auto;
-    }
-
-    .cake-bottom {
-      position: absolute;
-      bottom: 0;
-
-      width: 230px;
-      height: 100px;
-
-      background: #ff8fb1;
-
-      border-radius: 15px 15px 25px 25px;
 
       box-shadow:
-        inset 0 -12px rgba(190, 60, 100, 0.15),
-        0 10px 20px rgba(120, 40, 70, 0.15);
+        inset 0 -12px rgba(175, 40, 90, 0.12),
+        0 12px 20px rgba(100, 30, 60, 0.12);
     }
 
     .frosting {
       position: absolute;
 
-      width: 230px;
-      height: 42px;
+      top: 0;
 
-      bottom: 80px;
+      width: 100%;
+      height: 40px;
 
-      background: #fff4f7;
+      background: #fff8fa;
 
-      border-radius: 50% 50% 30% 30%;
+      border-radius: 50%;
     }
 
     .frosting::after {
@@ -87,36 +150,38 @@
       width: 35px;
       height: 40px;
 
-      background: #fff4f7;
+      background: #fff8fa;
 
       border-radius: 0 0 50% 50%;
 
-      top: 20px;
-      left: 35px;
+      top: 18px;
+      left: 30px;
 
       box-shadow:
-        60px 5px #fff4f7,
-        125px -2px #fff4f7;
+        65px 4px #fff8fa,
+        130px 0 #fff8fa;
     }
 
-    /* KITTY */
+    /* TEXT */
 
-    .kitty {
-      position: absolute;
+    .love {
+      font-size: 33px;
+      font-weight: bold;
 
-      left: 50%;
-      bottom: 70px;
+      color: #d6336c;
 
-      transform: translateX(-50%) translateY(100px);
+      margin-top: 18px;
 
-      font-size: 100px;
+      animation: lovePop 1s ease;
+    }
 
-      opacity: 0;
+    .message {
+      font-size: 21px;
+      line-height: 1.5;
 
-      z-index: -1;
+      color: #9d4162;
 
-      animation: kittyPop 2s ease forwards;
-      animation-delay: 1.5s;
+      margin-top: 15px;
     }
 
     /* HEARTS */
@@ -124,117 +189,58 @@
     .heart {
       position: fixed;
 
-      bottom: -40px;
+      bottom: -50px;
 
-      font-size: 25px;
+      font-size: 28px;
 
-      animation: floatHeart 5s linear infinite;
+      animation: hearts 6s linear infinite;
 
-      opacity: 0.8;
+      pointer-events: none;
     }
 
     .heart:nth-child(1) {
-      left: 10%;
+      left: 8%;
       animation-delay: 0s;
     }
 
     .heart:nth-child(2) {
       left: 25%;
-      animation-delay: 2s;
-    }
-
-    .heart:nth-child(3) {
-      left: 45%;
-      animation-delay: 1s;
-    }
-
-    .heart:nth-child(4) {
-      left: 65%;
-      animation-delay: 3s;
-    }
-
-    .heart:nth-child(5) {
-      left: 85%;
       animation-delay: 1.5s;
     }
 
-    /* MESSAGE */
+    .heart:nth-child(3) {
+      left: 48%;
+      animation-delay: 3s;
+    }
 
-    .love-message {
-      margin-top: 40px;
+    .heart:nth-child(4) {
+      left: 70%;
+      animation-delay: 0.7s;
+    }
 
-      font-size: 34px;
+    .heart:nth-child(5) {
+      left: 88%;
+      animation-delay: 2.2s;
+    }
 
-      color: #d6336c;
+    /* HIDDEN YOUTUBE PLAYER */
+
+    #musicPlayer {
+      position: fixed;
+
+      width: 1px;
+      height: 1px;
 
       opacity: 0;
 
-      transform: scale(0.5);
+      pointer-events: none;
 
-      animation: messageAppear 1s ease forwards;
-
-      animation-delay: 3.2s;
+      bottom: 0;
+      left: 0;
     }
 
-    .little-message {
-      color: #a83c60;
+    @keyframes hearts {
 
-      font-size: 18px;
-
-      margin-top: 15px;
-
-      opacity: 0;
-
-      animation: fadeIn 1.5s ease forwards;
-
-      animation-delay: 4s;
-
-      max-width: 350px;
-
-      padding: 0 20px;
-    }
-
-    /* ANIMATIONS */
-
-    @keyframes kittyPop {
-      0% {
-        transform: translateX(-50%) translateY(100px);
-        opacity: 0;
-      }
-
-      60% {
-        transform: translateX(-50%) translateY(-60px);
-        opacity: 1;
-      }
-
-      80% {
-        transform: translateX(-50%) translateY(-40px);
-      }
-
-      100% {
-        transform: translateX(-50%) translateY(-55px);
-        opacity: 1;
-        z-index: 2;
-      }
-    }
-
-    @keyframes messageAppear {
-      0% {
-        opacity: 0;
-        transform: scale(0.5);
-      }
-
-      70% {
-        transform: scale(1.1);
-      }
-
-      100% {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    @keyframes floatHeart {
       0% {
         transform: translateY(0) rotate(0deg);
         opacity: 0;
@@ -250,28 +256,59 @@
       }
     }
 
-    @keyframes fadeIn {
+    @keyframes pulse {
+
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.06);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes fadeUp {
+
       from {
         opacity: 0;
+        transform: translateY(30px);
       }
 
       to {
         opacity: 1;
+        transform: translateY(0);
       }
     }
 
-    @media(max-width: 500px) {
+    @keyframes catBounce {
 
-      h1 {
-        font-size: 25px;
+      from {
+        transform: translateY(0);
       }
 
-      .love-message {
-        font-size: 30px;
+      to {
+        transform: translateY(-12px);
+      }
+    }
+
+    @keyframes lovePop {
+
+      0% {
+        transform: scale(0.5);
+        opacity: 0;
       }
 
-      .kitty {
-        font-size: 90px;
+      70% {
+        transform: scale(1.12);
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 1;
       }
     }
 
@@ -280,38 +317,139 @@
 
 <body>
 
+  <!-- FLOATING HEARTS -->
+
   <div class="heart">❤️</div>
   <div class="heart">💕</div>
   <div class="heart">💗</div>
-  <div class="heart">❤️</div>
   <div class="heart">💖</div>
+  <div class="heart">💞</div>
 
-  <div class="container">
 
-    <h1>I have a little surprise for you...</h1>
+  <div class="page">
 
-    <div class="cake">
+    <h1>Hey Chiquis 💕</h1>
 
-      <div class="kitty">
-        🐱
+    <div class="intro">
+      I made you a little something
+    </div>
+
+
+    <button
+      id="surpriseButton"
+      class="surprise-button"
+      onclick="showSurprise()"
+    >
+      For Chiquis Only ❤️
+    </button>
+
+
+    <div
+      class="surprise"
+      id="surprise"
+    >
+
+      <div class="cat-container">
+
+        <img
+          class="cat"
+          src="cat.gif"
+          alt="Spinning meme cat"
+        >
+
       </div>
 
-      <div class="cake-bottom"></div>
 
-      <div class="frosting"></div>
+      <div class="cake">
 
-    </div>
+        <div class="frosting"></div>
 
-    <div class="love-message">
-      I love you ❤️
-    </div>
+      </div>
 
-    <div class="little-message">
-      You make my days better just by being in them.
-      I'm lucky to have you. 💕
+
+      <div class="love">
+
+        I love you CHIQUI BABY ❤️
+
+      </div>
+
+
+      <div class="message">
+
+        Have a good day every day 💕
+
+      </div>
+
     </div>
 
   </div>
 
+
+  <!-- MUSIC LOADS HERE AFTER BUTTON IS PRESSED -->
+
+  <div id="musicContainer"></div>
+
+
+  <script>
+
+    let musicStarted = false;
+
+
+    function showSurprise() {
+
+      const surprise =
+        document.getElementById("surprise");
+
+      const button =
+        document.getElementById("surpriseButton");
+
+
+      /* Show surprise */
+
+      surprise.classList.add("show");
+
+
+      /* Change button */
+
+      button.innerHTML = "I love you amor ❤️";
+
+
+      /* Start music only once */
+
+      if (!musicStarted) {
+
+        musicStarted = true;
+
+        const player =
+          document.createElement("iframe");
+
+
+        player.id = "musicPlayer";
+
+        player.src =
+          "https://www.youtube.com/embed/IxX_QHay02M?autoplay=1&loop=1&playlist=IxX_QHay02M&controls=0&rel=0";
+
+
+        player.allow =
+          "autoplay; encrypted-media";
+
+
+        player.setAttribute(
+          "allowfullscreen",
+          ""
+        );
+
+
+        document
+          .getElementById("musicContainer")
+          .appendChild(player);
+
+      }
+
+    }
+
+  </script>
+
 </body>
+
 </html>
